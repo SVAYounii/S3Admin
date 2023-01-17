@@ -5,7 +5,6 @@ import { Register } from './Pages/Register/Register'
 import { Movie } from './Pages/Movie/Movie'
 import { Show } from './Pages/Shows/Show'
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
   Navigate,

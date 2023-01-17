@@ -40,9 +40,9 @@ function CustomModal(props) {
     var imgurl = document.getElementById("ImageUrlInput").value
     var movieurl = document.getElementById("MovieUrlInput").value
 
-    var genre1 = document.getElementById("GenreInput1").value
-    var genre2 = document.getElementById("GenreInput2").value
-    var genre3 = document.getElementById("GenreInput3").value
+    // var genre1 = document.getElementById("GenreInput1").value
+    // var genre2 = document.getElementById("GenreInput2").value
+    // var genre3 = document.getElementById("GenreInput3").value
 
     let data = JSON.stringify(
 

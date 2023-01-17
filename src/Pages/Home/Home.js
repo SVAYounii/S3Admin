@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from '../../Components/Navbar'
 
 export function Home() {
@@ -6,7 +5,7 @@ export function Home() {
     
     <div>
       <Navbar />
-      <h1>lol</h1>
+      <h1 className="text-center">Admin Page</h1>
     </div>
   );
 }
