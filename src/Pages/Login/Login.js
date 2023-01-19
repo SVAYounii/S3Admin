@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import background from '../../Images/M.png'
 import axios from 'axios';
+import { ConnectionString } from '../../Components/ConnectionString';
 
 
 export function Login() {
@@ -19,7 +20,7 @@ export function Login() {
   const loggedInUser = userData !== null && userData.accessToken.length > 0 && new Date(userData.refreshtokens[0].expiryDate).getTime() > new Date(Date.now()).getTime()
 
   if (loggedInUser) {
-    window.location.replace("http://localhost:3009/");
+    window.location.replace("/");
   } else {
     return (
       <Container fluid style={{ backgroundImage: `url(${background})` }}>
@@ -73,7 +74,7 @@ export function GetAllUsers() {
   console.log(data);
   var config = {
     method: 'post',
-    url: 'https://localhost:7094/api/Users/Login',
+    url: ConnectionString()+ '/api/Users/Login',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -86,7 +87,7 @@ export function GetAllUsers() {
       console.log("Succes", response.data.accessToken);
       localStorage.setItem("accessToken", JSON.stringify(response.data));
       console.log("Logged in Redirect")
-      window.location.replace("http://localhost:3009/")
+      window.location.replace("/")
     })
     .catch(function (error) {
       console.log("error", error);
