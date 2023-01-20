@@ -4,6 +4,7 @@ import axios from 'axios';
 import Green from '../Images/green.png'
 import Red from '../Images/red.png'
 import Button from 'react-bootstrap/Button';
+import { ConnectionString } from './ConnectionString';
 
 function BasicExample() {
 
@@ -14,7 +15,7 @@ function BasicExample() {
 
             let config = {
                 method: 'get',
-                url: 'https://localhost:7094/api/Contents/GetMovies',
+                url: ConnectionString() + '/api/Contents/GetMovies',
                 headers: {
                     'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem("accessToken")).accessToken
                 }
@@ -36,7 +37,7 @@ function BasicExample() {
     const RemoveContent = (id) => {
         let config = {
             method: 'post',
-            url: 'https://localhost:7094/api/Contents/RemoveMovie?id=' + id,
+            url: ConnectionString() + '/api/Contents/RemoveMovie?id=' + id,
             headers: {
                 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem("accessToken")).accessToken
             }
@@ -54,7 +55,7 @@ function BasicExample() {
     const PublishContent = (id) => {
         let config = {
             method: 'post',
-            url: 'https://localhost:7094/api/Contents/PublishContent?id=' + id,
+            url: ConnectionString() + '/api/Contents/PublishContent?id=' + id,
             headers: {
                 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem("accessToken")).accessToken
             }
@@ -92,7 +93,7 @@ function BasicExample() {
                                         <td>{data.title}</td>
                                         <td>{data.description}</td>
                                         <td><Button variant="primary">Edit</Button>{' '}</td>
-                                        {data.status === 1 ?  <td><Button variant="danger" onClick={() => RemoveContent(data.id)}>Remove</Button>{' '}</td>  : <td><Button variant="success" onClick={() => PublishContent(data.id)}>Publish</Button>{' '}</td> }
+                                        {data.status === 1 ? <td><Button variant="danger" onClick={() => RemoveContent(data.id)}>Remove</Button>{' '}</td> : <td><Button variant="success" onClick={() => PublishContent(data.id)}>Publish</Button>{' '}</td>}
 
                                     </tr>
                                 </>

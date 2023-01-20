@@ -5,6 +5,6 @@ export const ConnectionString = () => {// Initialize state with an initial value
     }
     else {
         //console.log("https://q3.testenvi.nl/%22)
-        return ("http://localhost:3006");
+        return ("https://localhost:7094");
     } 
 }
