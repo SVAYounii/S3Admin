@@ -8,6 +8,10 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 function NavScrollExample() {
 
+  const LogOut = () => {
+    localStorage.removeItem("accessToken")
+    window.location.replace("/Login")
+  }
 
   return (
     <Navbar bg="light" variant="light" expand="lg">
@@ -35,7 +39,7 @@ function NavScrollExample() {
               <NavDropdown title="Profile" id="dropdown-button-drop-start" drop={"start"}>
                 <NavDropdown.Item className='me-5' href="/Profile">My Profile</NavDropdown.Item>
                 <Dropdown.Divider />
-                <NavDropdown.Item className='me-5' href="/Login">
+                <NavDropdown.Item className='me-5' onClick={LogOut}>
                   Log Out
                 </NavDropdown.Item>
               </NavDropdown>
